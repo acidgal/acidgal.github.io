@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tronika - Premium Electrical Solutions</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        
+        .logo h1 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-left: 10px;
+        }
+        
+        .logo h1 span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--dark);
+            font-weight: 600;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.postimg.cc/G3ZP53LY/Untitled.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Products Section */
+        .products {
+            background-color: var(--light);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .product-info p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        /* Offers Section */
+        .offers {
+            background-color: white;
+        }
+        
+        .offer-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .offer-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .offer-card:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .offer-card:hover h3,
+        .offer-card:hover p,
+        .offer-card:hover .icon {
+            color: white;
+        }
+        
+        .icon {
+            font-size: 50px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .offer-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .offer-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--light);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-details i {
+            margin-right: 15px;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-col p {
+            margin-bottom: 15px;
+            color: #bdc3c7;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #bdc3c7;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-top: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .offer-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1 style="font-size: 28px;">
+    <span style="color: #3498db;">T</span>
+    <span style="color: #3498db;">R</span>
+    <span style="color: #3498db;">O</span>
+    <span style="color: #e74c3c;">N</span>
+    <span style="color: #3498db;">I</span>
+    <span style="color: #3498db;">K</span>
+    <span style="color: #3498db;">A</span>
+</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#offers">Offers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Electrical Solutions</h1>
+                <p>Tronika provides high-quality electrical products and solutions for residential, agricultural, and industrial applications.</p>
+                <a href="#products" class="btn">Explore Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Tronika</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Trusted Electrical Partner</h3>
+                    <p>Tronika has been a leading provider of electrical products and solutions for over 15 years. We are committed to delivering high-quality, reliable, and innovative electrical components that meet the needs of our diverse clientele.</p>
+                    <p>Our extensive product range includes electrical accessories, switches, MCBs, fans, wires, and home appliances that are designed to meet the highest industry standards.</p>
+                    <p>With a focus on quality, safety, and customer satisfaction, Tronika has established itself as a trusted name in the electrical industry.</p>
+                    <a href="#contact" class="btn">Contact Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://i.postimg.cc/jj5JjBqt/tronica2.jpg" alt="Tronika Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+            </div>
+            <div class="products-grid">
+                <!-- Electrical Accessories -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/SsZXbdbj/IMG-1516.avif" alt="Electrical Accessories">
+                    </div>
+                    <div class="product-info">
+                        <h3>Electrical Accessories</h3>
+                        <p>Comprehensive range of high-quality electrical accessories for all your installation needs.</p>
+                        
+                    </div>
+                </div>
+                
+                <!-- Switches -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/Xv4XZmVp/IMG-1525.avif" alt="Switches">
+                    </div>
+                    <div class="product-info">
+                        <h3>Switches</h3>
+                        <p>Durable and stylish switches available in various designs and configurations.</p>
+                        
+                    </div>
+                </div>
+                
+                <!-- MCBs -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/jdy7Lzz3/IMG-1508.avif" alt="MCBs">
+                    </div>
+                    <div class="product-info">
+                        <h3>MCBs</h3>
+                        <p>Miniature Circuit Breakers designed for optimal protection against electrical faults.</p>
+                        
+                    </div>
+                </div>
+                
+                <!-- MCB Boxes -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/q7NBCTPB/IMG-1513.avif" alt="MCB Boxes">
+                    </div>
+                    <div class="product-info">
+                        <h3>MCB Boxes</h3>
+                        <p>Sturdy and secure enclosures for housing your MCBs and electrical components.</p>
+                        
+                    </div>
+                </div>
+                
+                <!-- Fans -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/qBsJKQ5K/IMG-1497.avif" alt="Fans">
+                    </div>
+                    <div class="product-info">
+                        <h3>Fans</h3>
+                        <p>Energy-efficient ceiling, table, and exhaust fans for residential and commercial use.</p>
+                        
+                    </div>
+                </div>
+                
+                <!-- Wires -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/Zqts6Pg9/IMG-1520.avif" alt="Wires">
+                    </div>
+                    <div class="product-info">
+                        <h3>Wires</h3>
+                        <p>High-quality electrical wires in various gauges for different applications.</p>
+                        
+                    </div>
+                </div>
+                
+                <!-- Agricultural Wires -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/3RWGRVB2/IMG-1506.avif" alt="Agricultural Wires">
+                    </div>
+                    <div class="product-info">
+                        <h3>Agricultural Wires</h3>
+                        <p>Specialized wires designed to withstand harsh agricultural environments.</p>
+                        
+                    </div>
+                </div>
+                
+                <!-- Industrial Wires -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src=https://i.postimg.cc/SsZXbdbj/IMG-1516.avif" alt="Industrial Wires">
+                    </div>
+                    <div class="product-info">
+                        <h3>Industrial Wires</h3>
+                        <p>Heavy-duty wires engineered for industrial applications and high-load scenarios.</p>
+                        
+                    </div>
+                </div>
+                
+                <!-- Home Appliances -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://i.postimg.cc/c1RYXpH4/IMG-1515.avif" alt="Home Appliances">
+                    </div>
+                    <div class="product-info">
+                        <h3>Home Appliances</h3>
+                        <p>Reliable and energy-efficient home appliances for modern living.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="section offers" id="offers">
+        <div class="container">
+            <div class="section-title">
+                <h2>Company Offers</h2>
+            </div>
+            <div class="offer-cards">
+                <div class="offer-card">
+                    <div class="icon">🏷️</div>
+                    <h3>Competitive Pricing</h3>
+                    <p>We offer the most competitive prices in the market without compromising on quality.</p>
+                    <a href="#contact" class="btn">Get Quote</a>
+                </div>
+                <div class="offer-card">
+                    <div class="icon">🚚</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Efficient logistics network ensures timely delivery of your orders.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </div>
+                <div class="offer-card">
+                    <div class="icon">🔧</div>
+                    <h3>Technical Support</h3>
+                    <p>Our expert team provides comprehensive technical support and guidance.</p>
+                    <a href="#contact" class="btn">Contact Support</a>
+                </div>
+                <div class="offer-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Warranty</h3>
+                    <p>All our products come with manufacturer's warranty for your peace of mind.</p>
+                    <a href="#contact" class="btn">Warranty Info</a>
+                </div>
+                <div class="offer-card">
+                    <div class="icon">📦</div>
+                    <h3>Bulk Discounts</h3>
+                    <p>Special discounts available for bulk purchases and corporate clients.</p>
+                    <a href="#contact" class="btn">Request Discount</a>
+                </div>
+                <div class="offer-card">
+                    <div class="icon">💡</div>
+                    <h3>Custom Solutions</h3>
+                    <p>We provide customized electrical solutions tailored to your specific needs.</p>
+                    <a href="#contact" class="btn">Discuss Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info" style="flex: 1;">
+                <h3>Get in Touch</h3>
+                <p>We’d love to hear from you. Contact us through any of the following methods.</p>
+                <div class="contact-details">
+                    <div><i>📍</i> <span>Vikrant cable industries, A-5/7 jhilmil industrial area1</span></div>
+                    <div><i>📞</i> <span>+919289013930</span></div>
+                    <div><i>🕒</i> <span>Mon-Sat: 9:00 AM - 6:00 PM</span></div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i>📱</i></a>
+                    <a href="#"><i>💬</i></a>
+                    <a href="#"><i>📘</i></a>
+                    <a href="#"><i>📸</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>About Tronika</h3>
+                    <p>Tronika is a leading provider of high-quality electrical products and solutions for residential, agricultural, and industrial applications.</p>
+                    <p>Committed to quality, innovation, and customer satisfaction.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#offers">Offers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">Electrical Accessories</a></li>
+                        <li><a href="#">Switches</a></li>
+                        <li><a href="#">MCBs</a></li>
+                        <li><a href="#">MCB Boxes</a></li>
+                        <li><a href="#">Fans</a></li>
+                        <li><a href="#">Wires</a></li>
+                        <li><a href="#">Agricultural Wires</a></li>
+                        <li><a href="#">Industrial Wires</a></li>
+                        <li><a href="#">Home Appliances</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p>Vikrant cable industries,</p>
+                    <p> A-5/7 jhilmil industrial area</p>
+                    <p>Phone: +91 9289013930</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2005 Tronika. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
